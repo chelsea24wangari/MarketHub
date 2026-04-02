@@ -1,4 +1,4 @@
-package com.chelsea.markethub.ui.screens.about
+package com.chelsea.markethub.ui.screens.Payments
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -6,9 +6,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
-@Composable
-fun AboutScreen(){
 
+@Composable
+fun PaymentsScreen(){
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -19,12 +19,10 @@ fun AboutScreen(){
 
     }
 
-
 }
 
-@Preview (showBackground =true)
+@Preview(showBackground =true)
 @Composable
-fun AboutScreenPreview(){
-AboutScreen()
-
+fun PaymentsScreenPreview(){
+    PaymentsScreen()
 }
