@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.chelsea.markethub.R
-import com.chelsea.markethub.ui.theme.Pink80
+import com.chelsea.markethub.ui.theme.YellowWhite80
 
 @Composable
 fun OnBoardingScreen(){
@@ -38,7 +38,7 @@ fun OnBoardingScreen(){
 
       //Image
         Image(
-            painter = painterResource(R.drawable.img),
+            painter = painterResource(R.drawable.img_1),
             contentDescription = "product",
             modifier = Modifier.size(300.dp)
         )
@@ -55,8 +55,8 @@ fun OnBoardingScreen(){
             text = "WELCOME TO MARKETHUB",
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold,
-            color = _root_ide_package_.com.chelsea.markethub.ui.theme.Pink80,
-            fontFamily = FontFamily.Cursive
+            color =YellowWhite80 ,
+
 
         )
 
@@ -86,7 +86,7 @@ fun OnBoardingScreen(){
 
         Button(
             onClick = {},
-            colors = ButtonDefaults.buttonColors(Pink80),
+            colors = ButtonDefaults.buttonColors(YellowWhite80),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(350.dp)
         ) {
