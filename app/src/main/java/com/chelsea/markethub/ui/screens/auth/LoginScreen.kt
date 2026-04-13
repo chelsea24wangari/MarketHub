@@ -37,13 +37,17 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.chelsea.markethub.R
+import com.chelsea.markethub.ui.navigation.ROUT_HOME
+import com.chelsea.markethub.ui.navigation.ROUT_LOGIN
 import com.chelsea.markethub.ui.theme.YellowWhite40
 import com.chelsea.markethub.ui.theme.YellowWhite80
 
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
 
 
     Column(
@@ -134,7 +138,18 @@ fun LoginScreen(){
         TextButton(onClick = {}) {
             Text(text = "Don't have an account? Register with us now.")
         }
+        Button(
+            onClick = {navController.navigate(ROUT_HOME)},
+            colors = ButtonDefaults.buttonColors(   YellowWhite80),
+            shape = RoundedCornerShape(10.dp),
+            modifier = Modifier.width(350.dp)
+        )
+        {
+            Text(
+                text = "Register with Us Now"
+            )
 
+        }
 
     }
 
@@ -144,7 +159,7 @@ fun LoginScreen(){
 @Preview (showBackground =true)
 @Composable
 fun LoginScreenPreview(){
-    LoginScreen()
+    LoginScreen(rememberNavController())
 }
 
 

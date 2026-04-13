@@ -19,6 +19,8 @@ import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -42,13 +44,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.chelsea.markethub.R
+import com.chelsea.markethub.ui.navigation.ROUT_INTENT
+import com.chelsea.markethub.ui.navigation.ROUT_LOGIN
 import com.chelsea.markethub.ui.theme.Pink80
+import com.chelsea.markethub.ui.theme.YellowWhite80
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(){
+fun HomeScreen(navController: NavController){
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -231,7 +238,18 @@ fun HomeScreen(){
 
         //End of row
 
+        Button(
+            onClick = {navController.navigate(ROUT_INTENT)},
+            colors = ButtonDefaults.buttonColors(   YellowWhite80),
+            shape = RoundedCornerShape(10.dp),
+            modifier = Modifier.width(350.dp)
+        )
+        {
+            Text(
+                text = "Register with Us Now"
+            )
 
+        }
 
 
 
@@ -264,6 +282,6 @@ fun HomeScreen(){
 @Composable
 fun HomeScreenPreview(){
 
-    HomeScreen()
+    HomeScreen(rememberNavController())
 
 }

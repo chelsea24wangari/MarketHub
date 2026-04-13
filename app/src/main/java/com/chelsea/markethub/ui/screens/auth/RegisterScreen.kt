@@ -38,11 +38,15 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.chelsea.markethub.R
+import com.chelsea.markethub.ui.navigation.ROUT_INTENT
+import com.chelsea.markethub.ui.navigation.ROUT_LOGIN
 import com.chelsea.markethub.ui.theme.YellowWhite80
 
 @Composable
-fun RegisterScreen(){
+fun RegisterScreen(navController: NavController){
     Column(
         modifier = Modifier
             .paint(painter = painterResource(   R.drawable.background), contentScale = ContentScale.FillBounds)
@@ -161,7 +165,7 @@ fun RegisterScreen(){
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = {},
+            onClick = {navController.navigate(ROUT_LOGIN)},
             colors = ButtonDefaults.buttonColors(   YellowWhite80),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(350.dp)
@@ -210,7 +214,7 @@ fun RegisterScreen(){
 @Preview(showBackground = true)
 @Composable
 fun RegisterScreenPreview(){
-    RegisterScreen()
+    RegisterScreen(rememberNavController())
 
 
 }
