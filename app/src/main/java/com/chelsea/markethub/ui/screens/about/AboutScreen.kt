@@ -2,7 +2,9 @@ package com.chelsea.markethub.ui.screens.about
 
 import android.service.autofill.OnClickAction
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -36,29 +38,17 @@ fun AboutScreen(navController: NavController){
         modifier = Modifier.fillMaxSize()
     ) {
 
-
-
-        //TopAppBar
+//TopAppBar
         TopAppBar(
-            title =  { Text(text = "About") },
+            title ={ Text(text = "About")},
             navigationIcon = {
                 IconButton(
                     onClick = {}) {
                     Icon(
                         imageVector = Icons.Default.Menu,
-                        contentDescription = "menu"
-                    )
-                }
-
-
-
+                        contentDescription = "Menu"
+                    ) }
             },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = YellowWhite80,
-                navigationIconContentColor = Color.White,
-                titleContentColor = Color.White,
-                actionIconContentColor = Color.White
-            ),
 
             actions = {
                 IconButton(
@@ -66,25 +56,39 @@ fun AboutScreen(navController: NavController){
                     Icon(
                         imageVector = Icons.Default.ShoppingCart,
                         contentDescription = ""
-                    )
-                }
-
-                IconButton(
-                    onClick = {}) {
-                    Icon(
-                        imageVector = Icons.Default.Share,
-                        contentDescription = ""
-                    )
-                }
+                    ) }
 
                 IconButton(
                     onClick = {}) {
                     Icon(
                         imageVector = Icons.Default.Notifications,
                         contentDescription = ""
-                    )
-                }
-            }
+                    ) }
+
+                IconButton(
+                    onClick = {}) {
+                    Icon(
+                        imageVector = Icons.Default.Share,
+                        contentDescription = ""
+                    ) }
+            },
+
+            colors = TopAppBarDefaults.topAppBarColors(
+                containerColor = YellowWhite80,
+                navigationIconContentColor = Color.White,
+                titleContentColor = Color.White,
+                actionIconContentColor = Color.White,
+            )
+
+
+        )
+
+        //End of TopAppBar
+        Spacer(modifier = Modifier.height(20.dp))
+
+
+
+
     }
 
 

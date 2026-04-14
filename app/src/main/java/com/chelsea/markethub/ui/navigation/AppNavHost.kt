@@ -12,7 +12,9 @@ import com.chelsea.markethub.ui.screens.auth.RegisterScreen
 import com.chelsea.markethub.ui.screens.home.HomeScreen
 import com.chelsea.markethub.ui.screens.OnBoardingScreen.OnBoardingScreen
 import com.chelsea.markethub.ui.screens.intent.IntentScreen
+import com.chelsea.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.chelsea.markethub.ui.screens.service.ServiceScreen
+import com.chelsea.markethub.ui.screens.splash.SplashScreen
 
 
 @Composable
@@ -51,6 +53,18 @@ fun AppNavHost(
         composable(ROUT_INTENT) {
             IntentScreen(navController)
         }
+        composable(ROUT_SPLASH) {
+            SplashScreen(navController)
+        }
+        composable(ROUT_SCAFFOLD) {
+            ScaffoldScreen(navController)
+        }
+
+        }
 
     }
-}
+
+
+
+
+

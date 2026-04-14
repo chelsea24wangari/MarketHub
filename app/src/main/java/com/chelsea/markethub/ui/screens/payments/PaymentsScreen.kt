@@ -1,4 +1,4 @@
-package com.chelsea.markethub.ui.screens.Payments
+package com.chelsea.markethub.ui.screens.payments
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
