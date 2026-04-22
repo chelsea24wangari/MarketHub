@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "496908628935",
+    "project_id": "markethub-6d6bb",
+    "storage_bucket": "markethub-6d6bb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496908628935:android:46b0c7915ee4193ddcdfe2",
+        "android_client_info": {
+          "package_name": "com.chelsea.markethub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_7YKiy2y1-5Uzcp0VP52LTs0VSWTPvy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

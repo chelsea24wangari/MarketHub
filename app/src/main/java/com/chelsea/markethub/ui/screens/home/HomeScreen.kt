@@ -244,7 +244,11 @@ fun HomeScreen(navController: NavController){
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(350.dp)
         )
+
+
         {
+            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Text(
                 text = "Register with Us Now"
             )

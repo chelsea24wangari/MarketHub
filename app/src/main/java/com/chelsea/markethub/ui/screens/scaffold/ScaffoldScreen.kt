@@ -1,18 +1,19 @@
 package com.chelsea.markethub.ui.screens.scaffold
 
-import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -22,7 +23,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -34,24 +35,24 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chelsea.markethub.ui.theme.YellowWhite80
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-    fun ScaffoldScreen(navController: NavController){
+fun ScaffoldScreen(navController: NavController) {
 
-    //Scaffold
+//Scaffold
 
-    var selectedIndex by remember { mutableStateOf(0) }
+    var selectedIndex by remember { mutableIntStateOf(0) }
 
     Scaffold(
-
-
-        //TopBar
         topBar = {
             TopAppBar(
-                title = { Text("Contact Screen") },
+                title = { Text("Scaffold Screen") },
                 navigationIcon = {
-                    IconButton(onClick = { /* Handle back/nav */ }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                    IconButton(onClick = { navController.navigateUp() }) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = "Back"
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -59,52 +60,34 @@ import com.chelsea.markethub.ui.theme.YellowWhite80
                     titleContentColor = Color.White,
                     navigationIconContentColor = Color.White
                 )
-            )
-        },
 
-        //BottomBar
+            )
+
+        },
         bottomBar = {
             NavigationBar(
                 containerColor = YellowWhite80
-            ){
+            ) {
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
-                    label = { Text("Home") },
+                    icon = { Icon(Icons.Default.Home, contentDescription = "Home", tint = Color.Black) },
+                    label = { Text("Home", color = Color.Black) },
                     selected = selectedIndex == 0,
-                    onClick = { selectedIndex = 0
-                        //navController.navigate(ROUT_HOME)
-                    }
+                    onClick = { selectedIndex = 0 }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.ArrowBack, contentDescription = "") },
-                    label = { Text("Favorites") },
+                    icon = { Icon(Icons.Default.Favorite, contentDescription = "Favorites", tint = Color.Black) },
+                    label = { Text("Favorites", color = Color.Black) },
                     selected = selectedIndex == 1,
-                    onClick = { selectedIndex = 1
-                        // navController.navigate(ROUT_HOME)
-                    }
+                    onClick = { selectedIndex = 1 }
                 )
                 NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
+                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile", tint = Color.Black) },
+                    label = { Text("Profile", color = Color.Black) },
                     selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        //  navController.navigate(ROUT_HOME)
-                    }
+                    onClick = { selectedIndex = 2 }
                 )
-
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = "Profile") },
-                    label = { Text("Profile") },
-                    selected = selectedIndex == 2,
-                    onClick = { selectedIndex = 2
-                        //  navController.navigate(ROUT_HOME)
-                    }
-                )
-
             }
         },
-
-        //FloatingActionButton
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { /* Add action */ },
@@ -112,53 +95,53 @@ import com.chelsea.markethub.ui.theme.YellowWhite80
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
             }
-        },
-        content = { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .padding(paddingValues)
-                    .fillMaxSize()
-            ) {
-
-
-                //Main Contents of the page
-                Text(text = "Welcome to Homescreen Screen", fontSize = 20.sp)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("This is where the main content goes.")
-
-
-
-
-
-
-
-
-
-
-
-
-            }
         }
-    )
-
-    //End of scaffold
-
+    ) { paddingValues ->
         Column(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier
+                .padding(paddingValues)
+                .fillMaxSize()
+                .padding(16.dp)
         ) {
 
+// Main Contents on the Screen
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            Text(text = "Welcome to Scaffold Screen", fontSize = 20.sp)
+            Spacer(modifier = Modifier.height(8.dp))
+            Text("This is where the main content goes.")
         }
-
-
     }
+}
 
-    @Preview (showBackground =true)
-    @Composable
-    fun ScaffoldScreenPreview(){
-        ScaffoldScreen(rememberNavController())
-    }
-
-
+@Preview(showBackground = true)
+@Composable
+fun ScaffoldScreenPreview() {
+    ScaffoldScreen(rememberNavController())
+}

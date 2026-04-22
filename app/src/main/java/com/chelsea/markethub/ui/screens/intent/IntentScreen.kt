@@ -86,7 +86,7 @@ fun IntentScreen(navController: NavController){
             },
 
             colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Pink80,
+                containerColor = YellowWhite80,
                 navigationIconContentColor = Color.White,
                 titleContentColor = Color.White,
                 actionIconContentColor = Color.White,
@@ -189,6 +189,7 @@ fun IntentScreen(navController: NavController){
 
 
     }
+
 
 
 
