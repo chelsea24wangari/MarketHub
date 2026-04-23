@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.chelsea.markethub.R
+import com.chelsea.markethub.data.AuthViewModel
 import com.chelsea.markethub.ui.navigation.ROUT_HOME
 import com.chelsea.markethub.ui.navigation.ROUT_LOGIN
 import com.chelsea.markethub.ui.theme.YellowWhite40
@@ -135,11 +137,17 @@ fun LoginScreen(navController: NavController){
         }
         Spacer(modifier = Modifier.height(20.dp))
 
+        val context = LocalContext.current
+        val authViewModel = AuthViewModel(navController, context)
+
+
         TextButton(onClick = {}) {
             Text(text = "Don't have an account? Register with us now.")
         }
         Button(
-            onClick = {navController.navigate(ROUT_HOME)},
+            onClick = {
+                authViewModel.login(email, password)
+               },
             colors = ButtonDefaults.buttonColors(   YellowWhite80),
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.width(350.dp)

@@ -3,9 +3,11 @@ package com.chelsea.markethub.ui.navigation
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.chelsea.markethub.ui.screens.about.AboutScreen
 import com.chelsea.markethub.ui.screens.auth.LoginScreen
 import com.chelsea.markethub.ui.screens.auth.RegisterScreen
@@ -13,6 +15,9 @@ import com.chelsea.markethub.ui.screens.home.HomeScreen
 import com.chelsea.markethub.ui.screens.OnBoardingScreen.OnBoardingScreen
 import com.chelsea.markethub.ui.screens.intent.IntentScreen
 import com.chelsea.markethub.ui.screens.payments.PaymentsScreen
+import com.chelsea.markethub.ui.screens.products.AddProductScreen
+import com.chelsea.markethub.ui.screens.products.UpdateProductScreen
+import com.chelsea.markethub.ui.screens.products.ViewProductScreen
 import com.chelsea.markethub.ui.screens.scaffold.ScaffoldScreen
 import com.chelsea.markethub.ui.screens.service.ServiceScreen
 import com.chelsea.markethub.ui.screens.splash.SplashScreen
@@ -60,5 +65,18 @@ fun AppNavHost(
         composable(ROUT_SCAFFOLD) {
             ScaffoldScreen(navController)
         }
+        composable(ROUTE_ADD_PRODUCT) { AddProductScreen(navController) }
+
+        composable(ROUTE_VIEW_PRODUCTS) { ViewProductScreen(navController) }
+
+        composable(
+            ROUTE_UPDATE_PRODUCT,
+            arguments = listOf(navArgument("productId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val productId = backStackEntry.arguments?.getString("productId")!!
+            UpdateProductScreen(navController, productId)
+        }
+
+
     }
 }
