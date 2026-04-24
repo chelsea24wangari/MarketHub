@@ -146,6 +146,7 @@ fun LoginScreen(navController: NavController){
         }
         Button(
             onClick = {
+                navController.navigate(ROUT_HOME)
                 authViewModel.login(email, password)
                },
             colors = ButtonDefaults.buttonColors(   YellowWhite80),

@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.Toast
 import androidx.navigation.NavController
 import com.chelsea.markethub.models.User
+import com.chelsea.markethub.ui.navigation.ROUTE_VIEW_PRODUCTS
 import com.chelsea.markethub.ui.navigation.ROUT_ADMINDASHBOARD
 import com.chelsea.markethub.ui.navigation.ROUT_HOME
 import com.chelsea.markethub.ui.navigation.ROUT_INTENT
@@ -89,7 +90,7 @@ class AuthViewModel(var navController: NavController, var context: Context){
 
 
                         else {
-                            navController.navigate(ROUT_HOME)
+                            navController.navigate(ROUTE_VIEW_PRODUCTS)
                         }
 
                     }.addOnFailureListener {

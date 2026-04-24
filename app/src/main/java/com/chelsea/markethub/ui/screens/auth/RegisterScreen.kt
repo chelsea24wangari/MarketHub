@@ -170,7 +170,7 @@ fun RegisterScreen(navController: NavController){
         val authViewModel = AuthViewModel(navController, context)
 
         Button(
-            onClick = {
+            onClick = {navController.navigate(ROUT_LOGIN)
                 authViewModel.signup(username, email, password,confirmpassword)
            },
             colors = ButtonDefaults.buttonColors(   YellowWhite80),
